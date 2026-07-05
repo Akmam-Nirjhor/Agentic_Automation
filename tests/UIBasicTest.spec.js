@@ -7,11 +7,26 @@ test .only("First Playwright Test", async ({ browser }) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     console.log(await page.title()); 
 
-    await page.locator("#username").fill("rahulshetty");
-    await page.locator("[type='password']").fill("learning");
-    await page.locator("#signInBtn").click();
+    const userName = page.locator("#username");
+    const password = page.locator("[type='password']");
+    const singIn = page.locator("#signInBtn");
+    await userName.type("rahulshettyacademy");
+    await password.type("learning");
+    await singIn.click();
+
+  
     console.log(await page.locator("[style*='block']").textContent());
-    await expect(page.locator("[style*='block']")).toContainText("Incorrect");
+    await expect(page.locator("[style*='block']")).toContainText("learning");
+    await userName.fill("");
+    await password.fill("");
+    await userName.fill("rahulshettyacademy");
+    password.fill("Learning@830$3mK2");
+    await singIn.click();
+    
+    console.log(await page.locator(".card-body a").nth(0). textContent());
+    
+
+
 
 
 
