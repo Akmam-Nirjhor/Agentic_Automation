@@ -10,6 +10,7 @@ test .only("First Playwright Test", async ({ browser }) => {
     const userName = page.locator("#username");
     const password = page.locator("[type='password']");
     const singIn = page.locator("#signInBtn");
+    const title = page.locator("..card-body a");
     await userName.type("rahulshettyacademy");
     await password.type("learning");
     await singIn.click();
@@ -23,7 +24,9 @@ test .only("First Playwright Test", async ({ browser }) => {
     password.fill("Learning@830$3mK2");
     await singIn.click();
     
-    console.log(await page.locator(".card-body a").nth(0). textContent());
+    // Ekhanei bujha jacche je [] return korte playwright oi fuycntion build
+    // console.log(await page.locator(".card-body a").nth(0). textContent());
+    console.log(await page.locator(".card-body a").allTextContents());
     
 
 
