@@ -26,6 +26,8 @@ test .only("First Playwright Test", async ({ browser }) => {
     
     // Ekhanei bujha jacche je [] return korte playwright oi fuycntion build
     // console.log(await page.locator(".card-body a").nth(0). textContent());
+
+    await page.locator(".card-body a").first().waitFor();
     console.log(await page.locator(".card-body a").allTextContents());
     
 
